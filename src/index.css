@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #2563eb;
+  --color-primary-dark: #1e40af;
+  --color-secondary: #0ea5e9;
+  --color-secondary-dark: #0284c7;
+  --color-accent: #f59e0b;
+  --color-accent-dark: #d97706;
+  --color-cefr-a1: #22c55e;
+  --color-cefr-a2: #84cc16;
+  --color-cefr-b1: #eab308;
+  --color-cefr-b2: #f97316;
+  --color-cefr-c1: #ef4444;
+  --color-cefr-c2: #dc2626;
+  --color-cefr-unknown: #6b7280;
+}
+
+body {
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+/* RTL Support for Hebrew */
+.rtl {
+  direction: rtl;
+}
+
+/* Card Flip Animation */
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}

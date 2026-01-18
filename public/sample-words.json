@@ -1,0 +1,164 @@
+{
+  "words": [
+    {
+      "id": "1",
+      "word": "hello",
+      "language": "en",
+      "translations": ["שלום", "היי"],
+      "sentences": [
+        "Hello, how are you today?",
+        "She said hello to everyone at the party."
+      ],
+      "translatedSentences": [
+        "שלום, מה שלומך היום?",
+        "היא אמרה שלום לכולם במסיבה."
+      ],
+      "isKnown": false,
+      "level": "A1"
+    },
+    {
+      "id": "2",
+      "word": "book",
+      "language": "en",
+      "translations": ["ספר", "לספר"],
+      "sentences": [
+        "I am reading an interesting book.",
+        "She booked a table at the restaurant."
+      ],
+      "translatedSentences": [
+        "אני קורא ספר מעניין.",
+        "היא הזמינה שולחן במסעדה."
+      ],
+      "isKnown": false,
+      "level": "A1"
+    },
+    {
+      "id": "3",
+      "word": "understand",
+      "language": "en",
+      "translations": ["להבין", "להשכיל"],
+      "sentences": [
+        "I understand what you mean.",
+        "It's important to understand the basics first."
+      ],
+      "translatedSentences": [
+        "אני מבין למה אתה מתכוון.",
+        "חשוב להבין את היסודות קודם."
+      ],
+      "isKnown": false,
+      "level": "A2"
+    },
+    {
+      "id": "4",
+      "word": "develop",
+      "language": "en",
+      "translations": ["לפתח", "להתפתח"],
+      "sentences": [
+        "We need to develop new skills.",
+        "The company is developing a new product."
+      ],
+      "translatedSentences": [
+        "אנחנו צריכים לפתח מיומנויות חדשות.",
+        "החברה מפתחת מוצר חדש."
+      ],
+      "isKnown": false,
+      "level": "B1"
+    },
+    {
+      "id": "5",
+      "word": "analyze",
+      "language": "en",
+      "translations": ["לנתח", "לבחון"],
+      "sentences": [
+        "We need to analyze the data carefully.",
+        "The scientist analyzed the results of the experiment."
+      ],
+      "translatedSentences": [
+        "אנחנו צריכים לנתח את הנתונים בזהירות.",
+        "המדען ניתח את תוצאות הניסוי."
+      ],
+      "isKnown": false,
+      "level": "B2"
+    },
+    {
+      "id": "6",
+      "word": "ספר",
+      "language": "he",
+      "translations": ["book", "tell"],
+      "sentences": [
+        "אני קורא ספר מעניין.",
+        "ספר לי מה קרה אתמול."
+      ],
+      "translatedSentences": [
+        "I am reading an interesting book.",
+        "Tell me what happened yesterday."
+      ],
+      "isKnown": false,
+      "level": "Unknown"
+    },
+    {
+      "id": "7",
+      "word": "learn",
+      "language": "en",
+      "translations": ["ללמוד", "להתלמד"],
+      "sentences": [
+        "I want to learn Hebrew.",
+        "Children learn quickly."
+      ],
+      "translatedSentences": [
+        "אני רוצה ללמוד עברית.",
+        "ילדים לומדים במהירות."
+      ],
+      "isKnown": true,
+      "level": "A2"
+    },
+    {
+      "id": "8",
+      "word": "important",
+      "language": "en",
+      "translations": ["חשוב", "משמעותי"],
+      "sentences": [
+        "This is a very important decision.",
+        "It's important to stay healthy."
+      ],
+      "translatedSentences": [
+        "זו החלטה חשובה מאוד.",
+        "חשוב להישאר בריא."
+      ],
+      "isKnown": false,
+      "level": "A2"
+    },
+    {
+      "id": "9",
+      "word": "beautiful",
+      "language": "en",
+      "translations": ["יפה", "נאה"],
+      "sentences": [
+        "What a beautiful day!",
+        "She has a beautiful voice."
+      ],
+      "translatedSentences": [
+        "איזה יום יפה!",
+        "יש לה קול יפה."
+      ],
+      "isKnown": false,
+      "level": "A1"
+    },
+    {
+      "id": "10",
+      "word": "accomplish",
+      "language": "en",
+      "translations": ["להשיג", "לבצע"],
+      "sentences": [
+        "She accomplished all her goals.",
+        "We can accomplish great things together."
+      ],
+      "translatedSentences": [
+        "היא השיגה את כל המטרות שלה.",
+        "אנחנו יכולים להשיג דברים גדולים ביחד."
+      ],
+      "isKnown": false,
+      "level": "B1"
+    }
+  ]
+}

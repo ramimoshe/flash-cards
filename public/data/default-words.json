@@ -1,0 +1,212 @@
+{
+  "words": [
+    {
+      "id": "1",
+      "word": "inevitable",
+      "language": "en",
+      "translations": ["בלתי נמנע"],
+      "sentences": [
+        "Change is inevitable in life.",
+        "It was inevitable that they would meet again."
+      ],
+      "translatedSentences": [
+        "שינוי הוא בלתי נמנע בחיים.",
+        "זה היה בלתי נמנע שהם יפגשו שוב."
+      ],
+      "isKnown": false,
+      "level": "B2"
+    },
+    {
+      "id": "2",
+      "word": "subtle",
+      "language": "en",
+      "translations": ["עדין", "דק"],
+      "sentences": [
+        "There was a subtle change in her attitude.",
+        "The flavor is very subtle and delicate."
+      ],
+      "translatedSentences": [
+        "היה שינוי עדין בגישה שלה.",
+        "הטעם עדין ועדין מאוד."
+      ],
+      "isKnown": false,
+      "level": "B2"
+    },
+    {
+      "id": "3",
+      "word": "reluctant",
+      "language": "en",
+      "translations": ["בעל כורחו", "לא רוצה"],
+      "sentences": [
+        "He was reluctant to answer the question.",
+        "She gave a reluctant smile."
+      ],
+      "translatedSentences": [
+        "הוא היה בעל כורחו לענות על השאלה.",
+        "היא חייכה בעל כורחה."
+      ],
+      "isKnown": false,
+      "level": "B2"
+    },
+    {
+      "id": "4",
+      "word": "imply",
+      "language": "en",
+      "translations": ["לרמוז", "להצביע על"],
+      "sentences": [
+        "Are you implying that I'm wrong?",
+        "His silence seemed to imply agreement."
+      ],
+      "translatedSentences": [
+        "אתה רומז שאני טועה?",
+        "שתיקתו נראתה כאילו רומזת על הסכמה."
+      ],
+      "isKnown": false,
+      "level": "B2"
+    },
+    {
+      "id": "5",
+      "word": "indifferent",
+      "language": "en",
+      "translations": ["אדיש", "לא אכפתי"],
+      "sentences": [
+        "He seemed indifferent to her suffering.",
+        "She was indifferent to public opinion."
+      ],
+      "translatedSentences": [
+        "הוא נראה אדיש לסבל שלה.",
+        "היא הייתה אדישה לדעת הקהל."
+      ],
+      "isKnown": false,
+      "level": "B2"
+    },
+    {
+      "id": "6",
+      "word": "compromise",
+      "language": "en",
+      "translations": ["להתפשר", "פשרה"],
+      "sentences": [
+        "We need to find a compromise that works for everyone.",
+        "Neither side was willing to compromise."
+      ],
+      "translatedSentences": [
+        "אנחנו צריכים למצוא פשרה שעובדת לכולם.",
+        "אף צד לא היה מוכן להתפשר."
+      ],
+      "isKnown": false,
+      "level": "B2"
+    },
+    {
+      "id": "7",
+      "word": "emerge",
+      "language": "en",
+      "translations": ["להתגלות", "להופיע", "לצוץ"],
+      "sentences": [
+        "The sun emerged from behind the clouds.",
+        "New evidence has emerged in the case."
+      ],
+      "translatedSentences": [
+        "השמש הופיעה מאחורי העננים.",
+        "ראיות חדשות התגלו בתיק."
+      ],
+      "isKnown": false,
+      "level": "B2"
+    },
+    {
+      "id": "8",
+      "word": "consciousness",
+      "language": "en",
+      "translations": ["תודעה", "הכרה"],
+      "sentences": [
+        "He lost consciousness after the accident.",
+        "There is growing consciousness about environmental issues."
+      ],
+      "translatedSentences": [
+        "הוא איבד את ההכרה לאחר התאונה.",
+        "יש מודעות הולכת וגדלה לנושאים סביבתיים."
+      ],
+      "isKnown": false,
+      "level": "C1"
+    },
+    {
+      "id": "9",
+      "word": "simile",
+      "language": "en",
+      "translations": ["דימיון", "השוואה"],
+      "sentences": [
+        "The poet used a simile to compare love to a rose.",
+        "A simile is a figure of speech that uses 'like' or 'as'."
+      ],
+      "translatedSentences": [
+        "המשורר השתמש בדימיון כדי להשוות אהבה לוורד.",
+        "דימיון הוא אמצעי לשוני המשתמש ב'כמו' או 'כ'."
+      ],
+      "isKnown": false,
+      "level": "C1"
+    },
+    {
+      "id": "10",
+      "word": "sentient",
+      "language": "en",
+      "translations": ["רגיש", "מודע", "בעל תחושה"],
+      "sentences": [
+        "Humans are sentient beings capable of complex emotions.",
+        "The question of whether AI can become sentient is debated."
+      ],
+      "translatedSentences": [
+        "בני אדם הם יצורים רגישים המסוגלים לרגשות מורכבים.",
+        "השאלה האם בינה מלאכותית יכולה להפוך למודעת נדונה."
+      ],
+      "isKnown": false,
+      "level": "C2"
+    },
+    {
+      "id": "11",
+      "word": "infamous",
+      "language": "en",
+      "translations": ["מתועב", "ידוע לשימצה", "ידוע לשמצה"],
+      "sentences": [
+        "He became infamous for his cruel actions.",
+        "The city's most infamous criminal was finally caught."
+      ],
+      "translatedSentences": [
+        "הוא הפך ידוע לשימצה בגלל מעשיו האכזריים.",
+        "הפושע הידוע לשמצה ביותר של העיר נתפס לבסוף."
+      ],
+      "isKnown": false,
+      "level": "C1"
+    },
+    {
+      "id": "12",
+      "word": "burden",
+      "language": "en",
+      "translations": ["עול", "נטל", "משא"],
+      "sentences": [
+        "The burden of proof lies with the prosecution.",
+        "She didn't want to be a burden on her family."
+      ],
+      "translatedSentences": [
+        "נטל ההוכחה מוטל על התביעה.",
+        "היא לא רצתה להיות נטל על משפחתה."
+      ],
+      "isKnown": false,
+      "level": "B2"
+    },
+    {
+      "id": "13",
+      "word": "derogatory",
+      "language": "en",
+      "translations": ["פוגע", "מזלזל", "משפיל"],
+      "sentences": [
+        "He made derogatory remarks about her appearance.",
+        "The term is considered derogatory and offensive."
+      ],
+      "translatedSentences": [
+        "הוא העיר הערות משפילות על המראה שלה.",
+        "המונח נחשב למזלזל ופוגעני."
+      ],
+      "isKnown": false,
+      "level": "C1"
+    }
+  ]
+}
