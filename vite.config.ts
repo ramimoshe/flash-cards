@@ -3,10 +3,10 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 
 // https://vitejs.dev/config/
-export default defineConfig(({ command }) => ({
+export default defineConfig(({ mode }) => ({
   plugins: [react()],
   // Only use base path in production build
-  base: command === 'build' ? '/flash-cards/' : '/',
+  base: mode === 'production' ? '/flash-cards/' : '/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
