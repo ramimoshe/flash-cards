@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { WordsProvider } from './context/WordsContext';
 import { SettingsProvider } from './context/SettingsContext';
 import { ServiceFactory } from './services/ServiceFactory';
+import { getBasePath } from './utils/basePath';
 import { Layout } from './components/Layout';
 import { FlashCards } from './pages/FlashCards';
 import { WordList } from './pages/WordList';
@@ -19,7 +20,7 @@ function App(): React.ReactElement {
   return (
     <SettingsProvider>
       <WordsProvider>
-        <Router basename="/flash-cards">
+        <Router basename={getBasePath()}>
           <Layout>
             <Routes>
               <Route path="/" element={<FlashCards />} />

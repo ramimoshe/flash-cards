@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
 import { Word } from '@/types/Word';
 import { ServiceFactory } from '@/services/ServiceFactory';
+import { getDataPath } from '@/utils/basePath';
 
 interface WordsContextType {
   words: Word[];
@@ -32,7 +33,7 @@ export function WordsProvider({ children }: { children: ReactNode }): React.Reac
       if (loadedWords.length === 0) {
         console.log('No words in storage, loading default words...');
         try {
-          const response = await fetch('/data/default-words.json');
+          const response = await fetch(getDataPath('default-words.json'));
           if (response.ok) {
             const data = await response.json();
             if (data.words && Array.isArray(data.words)) {

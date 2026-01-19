@@ -3,11 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flash Cards</title>
+    <title>Flash Cards - Redirecting...</title>
     <script>
-      // Redirect to index.html for client-side routing
-      const path = window.location.pathname.replace('/flash-cards', '');
-      window.location.href = '/flash-cards/#' + path;
+      // GitHub Pages SPA redirect for client-side routing
+      // Converts /flash-cards/settings -> /flash-cards/#/settings
+      (function() {
+        var path = window.location.pathname;
+        var base = '/flash-cards';
+        
+        if (path.startsWith(base)) {
+          var route = path.slice(base.length) || '/';
+          var redirect = base + '/#' + route + window.location.search;
+          window.location.replace(redirect);
+        }
+      })();
     </script>
   </head>
   <body>

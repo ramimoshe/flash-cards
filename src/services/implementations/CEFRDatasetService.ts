@@ -1,5 +1,6 @@
 import { CEFRLevel } from '@/types/Word';
 import { ICEFRService } from '@/services/interfaces/ICEFRService';
+import { getDataPath } from '@/utils/basePath';
 
 export class CEFRDatasetService implements ICEFRService {
   private dataset: Map<string, CEFRLevel> = new Map();
@@ -13,8 +14,8 @@ export class CEFRDatasetService implements ICEFRService {
     try {
       // Files in public/ folder are served from root
       // In dev: /data/cefr-words.json
-      // In prod: /flash-cards/data/cefr-words.json (handled by base path)
-      const response = await fetch('/data/cefr-words.json');
+      // In prod: /flash-cards/data/cefr-words.json (handled by getDataPath)
+      const response = await fetch(getDataPath('cefr-words.json'));
       
       if (!response.ok) {
         throw new Error(`Failed to load CEFR dataset: ${response.status} ${response.statusText}`);
