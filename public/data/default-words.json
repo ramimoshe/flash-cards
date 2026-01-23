@@ -475,6 +475,159 @@
       ],
       "isKnown": false,
       "level": "B2"
+    },
+    {
+      "id": "29",
+      "word": "articulate",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
+      "translations": ["לנסח בבהירות", "להביע בבירור"],
+      "sentences": [
+        "She was able to articulate her thoughts clearly during the presentation.",
+        "It's important to articulate your concerns to your supervisor."
+      ],
+      "translatedSentences": [
+        "היא הצליחה לנסח את מחשבותיה בבהירות במהלך המצגת.",
+        "חשוב להביע את החששות שלך לממונה שלך בבירור."
+      ],
+      "isKnown": false,
+      "level": "C1"
+    },
+    {
+      "id": "30",
+      "word": "comprehend",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
+      "translations": ["להבין", "לתפוס"],
+      "sentences": [
+        "It's difficult to comprehend the full complexity of this issue.",
+        "Students need to comprehend the material before moving to the next chapter."
+      ],
+      "translatedSentences": [
+        "קשה להבין את המורכבות המלאה של הנושא הזה.",
+        "התלמידים צריכים לתפוס את החומר לפני המעבר לפרק הבא."
+      ],
+      "isKnown": false,
+      "level": "C1"
+    },
+    {
+      "id": "31",
+      "word": "conceptualize",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
+      "translations": ["להעלות רעיון", "לדמיין"],
+      "sentences": [
+        "It's hard to conceptualize such a complex system without seeing it in action.",
+        "The team needs to conceptualize a new approach to solve this problem."
+      ],
+      "translatedSentences": [
+        "קשה לדמיין מערכת כה מורכבת בלי לראות אותה בפעולה.",
+        "הצוות צריך להעלות רעיון לגישה חדשה כדי לפתור את הבעיה הזו."
+      ],
+      "isKnown": false,
+      "level": "C1"
+    },
+    {
+      "id": "32",
+      "word": "contemplate",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
+      "translations": ["להרהר", "לשקול"],
+      "sentences": [
+        "She sat quietly to contemplate her future career options.",
+        "We need time to contemplate the implications of this decision."
+      ],
+      "translatedSentences": [
+        "היא ישבה בשקט כדי להרהר באפשרויות הקריירה העתידיות שלה.",
+        "אנחנו צריכים זמן לשקול את ההשלכות של ההחלטה הזו."
+      ],
+      "isKnown": false,
+      "level": "C1"
+    },
+    {
+      "id": "33",
+      "word": "elaborate",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
+      "translations": ["לפרט", "להרחיב"],
+      "sentences": [
+        "Could you elaborate on your proposal?",
+        "The professor asked the student to elaborate on her research findings."
+      ],
+      "translatedSentences": [
+        "האם תוכל לפרט על ההצעה שלך?",
+        "הפרופסור ביקש מהסטודנטית להרחיב על ממצאי המחקר שלה."
+      ],
+      "isKnown": false,
+      "level": "C1"
+    },
+    {
+      "id": "34",
+      "word": "elucidate",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
+      "translations": ["להבהיר", "להסביר"],
+      "sentences": [
+        "The diagram helps to elucidate the complex process.",
+        "The teacher tried to elucidate the difficult concept using examples."
+      ],
+      "translatedSentences": [
+        "התרשים עוזר להבהיר את התהליך המורכב.",
+        "המורה ניסה להסביר את המושג הקשה באמצעות דוגמאות."
+      ],
+      "isKnown": false,
+      "level": "C1"
+    },
+    {
+      "id": "35",
+      "word": "formulate",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
+      "translations": ["לנסח", "לפתח"],
+      "sentences": [
+        "The committee needs to formulate a new policy for remote work.",
+        "Scientists are trying to formulate a theory that explains these phenomena."
+      ],
+      "translatedSentences": [
+        "הוועדה צריכה לנסח מדיניות חדשה לעבודה מרחוק.",
+        "מדענים מנסים לפתח תיאוריה שמסבירה את התופעות האלה."
+      ],
+      "isKnown": false,
+      "level": "C1"
+    },
+    {
+      "id": "36",
+      "word": "scrutinize",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
+      "translations": ["לבחון בקפידה", "לבדוק לעומק"],
+      "sentences": [
+        "The auditors will scrutinize the company's financial records.",
+        "We need to scrutinize every detail before making a final decision."
+      ],
+      "translatedSentences": [
+        "המבקרים יבחנו בקפידה את הרשומות הפיננסיות של החברה.",
+        "אנחנו צריכים לבדוק לעומק כל פרט לפני קבלת החלטה סופית."
+      ],
+      "isKnown": false,
+      "level": "C1"
+    },
+    {
+      "id": "37",
+      "word": "substantiate",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
+      "translations": ["להוכיח", "לתמוך בראיות"],
+      "sentences": [
+        "The researcher needs to substantiate her claims with solid evidence.",
+        "We cannot accept this theory without substantiating data."
+      ],
+      "translatedSentences": [
+        "החוקרת צריכה להוכיח את טענותיה בראיות מוצקות.",
+        "אנחנו לא יכולים לקבל את התיאוריה הזו בלי נתונים שתומכים בה."
+      ],
+      "isKnown": false,
+      "level": "C1"
     }
   ]
 }
