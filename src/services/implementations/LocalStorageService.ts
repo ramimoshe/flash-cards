@@ -1,22 +1,55 @@
 import { Word } from '@/types/Word';
 import { IStorageService } from '@/services/interfaces/IStorageService';
+import { DictionarySource } from '@/types/ServiceConfig';
 
-const STORAGE_KEY = 'flash-cards-words';
+const STORAGE_KEY_PREFIX = 'flash-cards-words';
+const OLD_STORAGE_KEY = 'flash-cards-words';
 
 export class LocalStorageService implements IStorageService {
-  async saveWords(words: Word[]): Promise<void> {
+  private migrated = false;
+
+  private getStorageKey(dictionary: DictionarySource): string {
+    return `${STORAGE_KEY_PREFIX}-${dictionary}`;
+  }
+
+  private migrateOldData(): void {
+    if (this.migrated) return;
+    
     try {
+      // Check if old single-key data exists
+      const oldData = localStorage.getItem(OLD_STORAGE_KEY);
+      const defaultKey = this.getStorageKey('default');
+      
+      if (oldData && !localStorage.getItem(defaultKey)) {
+        // Migrate to new default key
+        localStorage.setItem(defaultKey, oldData);
+        localStorage.removeItem(OLD_STORAGE_KEY);
+        console.log('✓ Migrated existing words to default dictionary storage');
+      }
+    } catch (error) {
+      console.error('Failed to migrate old data:', error);
+    }
+    
+    this.migrated = true;
+  }
+
+  async saveWords(words: Word[], dictionary: DictionarySource): Promise<void> {
+    try {
+      const key = this.getStorageKey(dictionary);
       const data = JSON.stringify({ words });
-      localStorage.setItem(STORAGE_KEY, data);
+      localStorage.setItem(key, data);
     } catch (error) {
       console.error('Failed to save words to localStorage:', error);
       throw new Error('Failed to save words');
     }
   }
 
-  async loadWords(): Promise<Word[]> {
+  async loadWords(dictionary: DictionarySource): Promise<Word[]> {
+    this.migrateOldData();
+    
     try {
-      const data = localStorage.getItem(STORAGE_KEY);
+      const key = this.getStorageKey(dictionary);
+      const data = localStorage.getItem(key);
       if (!data) {
         return [];
       }
@@ -28,9 +61,10 @@ export class LocalStorageService implements IStorageService {
     }
   }
 
-  async clearWords(): Promise<void> {
+  async clearWords(dictionary: DictionarySource): Promise<void> {
     try {
-      localStorage.removeItem(STORAGE_KEY);
+      const key = this.getStorageKey(dictionary);
+      localStorage.removeItem(key);
     } catch (error) {
       console.error('Failed to clear words from localStorage:', error);
       throw new Error('Failed to clear words');

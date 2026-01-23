@@ -2,6 +2,8 @@ import { createContext, useContext, useState, useEffect, ReactNode, useCallback 
 import { Word } from '@/types/Word';
 import { ServiceFactory } from '@/services/ServiceFactory';
 import { getDataPath } from '@/utils/basePath';
+import { useSettings } from './SettingsContext';
+import { DictionarySource } from '@/types/ServiceConfig';
 
 interface WordsContextType {
   words: Word[];
@@ -21,31 +23,38 @@ const WordsContext = createContext<WordsContextType | undefined>(undefined);
 const storageService = ServiceFactory.createStorageService();
 
 export function WordsProvider({ children }: { children: ReactNode }): React.ReactElement {
+  const { settings } = useSettings();
   const [words, setWords] = useState<Word[]>([]);
   const [loading, setLoading] = useState(true);
+
+  const getDictionaryFilename = (dictionary: DictionarySource): string => {
+    return dictionary === 'default' ? 'default-words.json' : 'oxford-5000-words.json';
+  };
 
   const loadWords = useCallback(async (): Promise<void> => {
     setLoading(true);
     try {
-      const loadedWords = await storageService.loadWords();
+      const dictionary = settings.selectedDictionary;
+      const loadedWords = await storageService.loadWords(dictionary);
       
-      // If no words in storage, load default words
+      // If no words in storage, load from JSON file
       if (loadedWords.length === 0) {
-        console.log('No words in storage, loading default words...');
+        const filename = getDictionaryFilename(dictionary);
+        console.log(`No words in storage, loading ${filename}...`);
         try {
-          const response = await fetch(getDataPath('default-words.json'));
+          const response = await fetch(getDataPath(filename));
           if (response.ok) {
             const data = await response.json();
             if (data.words && Array.isArray(data.words)) {
-              console.log(`Loaded ${data.words.length} default words`);
+              console.log(`✓ Loaded ${data.words.length} words from ${filename}`);
               setWords(data.words);
-              // Save default words to storage
-              await storageService.saveWords(data.words);
+              // Save words to storage
+              await storageService.saveWords(data.words, dictionary);
               return;
             }
           }
         } catch (err) {
-          console.error('Failed to load default words:', err);
+          console.error(`Failed to load ${filename}:`, err);
         }
       }
       
@@ -55,31 +64,39 @@ export function WordsProvider({ children }: { children: ReactNode }): React.Reac
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [settings.selectedDictionary]);
 
   const saveWords = useCallback(async (): Promise<void> => {
     try {
-      await storageService.saveWords(words);
+      const dictionary = settings.selectedDictionary;
+      await storageService.saveWords(words, dictionary);
     } catch (error) {
       console.error('Failed to save words:', error);
       throw error;
     }
-  }, [words]);
+  }, [words, settings.selectedDictionary]);
 
   const clearAllWords = useCallback(async (): Promise<void> => {
     try {
-      await storageService.clearWords();
+      const dictionary = settings.selectedDictionary;
+      await storageService.clearWords(dictionary);
       setWords([]);
     } catch (error) {
       console.error('Failed to clear words:', error);
       throw error;
     }
-  }, []);
+  }, [settings.selectedDictionary]);
 
   // Load words on mount
   useEffect(() => {
     loadWords();
   }, [loadWords]);
+
+  // Watch for dictionary changes and reload words
+  useEffect(() => {
+    console.log(`📚 Dictionary changed to: ${settings.selectedDictionary}`);
+    loadWords();
+  }, [settings.selectedDictionary]);
 
   // Auto-save words whenever they change
   useEffect(() => {

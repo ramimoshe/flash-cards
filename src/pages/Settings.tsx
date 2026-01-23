@@ -72,6 +72,59 @@ export function Settings(): React.ReactElement {
     <div className="max-w-4xl mx-auto">
       <h1 className="text-3xl font-bold text-gray-900 mb-6">Settings</h1>
 
+      {/* Dictionary Selection */}
+      <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+        <h2 className="text-xl font-semibold mb-4">📚 Dictionary Selection</h2>
+        <p className="text-gray-600 mb-4">
+          Choose which word database to use. Your progress (known words, custom additions) 
+          is saved separately for each dictionary.
+        </p>
+        
+        <div className="space-y-3">
+          <label className="flex items-start p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+            <input
+              type="radio"
+              name="dictionary"
+              value="default"
+              checked={settings.selectedDictionary === 'default'}
+              onChange={() => updateSettings({ selectedDictionary: 'default' })}
+              className="mt-1 mr-3"
+            />
+            <div className="flex-1">
+              <div className="font-medium text-gray-900">Default Dictionary</div>
+              <div className="text-sm text-gray-600">
+                Curated list of common words (smaller, focused collection)
+              </div>
+            </div>
+          </label>
+
+          <label className="flex items-start p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+            <input
+              type="radio"
+              name="dictionary"
+              value="oxford-5000"
+              checked={settings.selectedDictionary === 'oxford-5000'}
+              onChange={() => updateSettings({ selectedDictionary: 'oxford-5000' })}
+              className="mt-1 mr-3"
+            />
+            <div className="flex-1">
+              <div className="font-medium text-gray-900">Oxford 5000</div>
+              <div className="text-sm text-gray-600">
+                Complete Oxford 5000 word list (comprehensive, 5000+ words)
+              </div>
+            </div>
+          </label>
+        </div>
+
+        <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+          <p className="text-sm text-blue-800">
+            <strong>Currently using:</strong> {settings.selectedDictionary === 'default' ? 'Default Dictionary' : 'Oxford 5000'}
+            <br />
+            <strong>Words in current dictionary:</strong> {words.length}
+          </p>
+        </div>
+      </div>
+
       {/* File Management */}
       <div className="bg-white rounded-lg shadow-md p-6 mb-6">
         <h2 className="text-xl font-semibold mb-4">File Management</h2>

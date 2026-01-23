@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { Settings } from '@/types/ServiceConfig';
+import { Settings, DictionarySource } from '@/types/ServiceConfig';
 
 const SETTINGS_KEY = 'flash-cards-settings';
 
@@ -8,6 +8,7 @@ const defaultSettings: Settings = {
   sentenceProvider: 'freedictionary',
   ttsProvider: 'browser',
   isOfflineMode: false,
+  selectedDictionary: 'oxford-5000',
   apiKeys: {},
 };
 
@@ -16,6 +17,7 @@ interface SettingsContextType {
   updateSettings: (newSettings: Partial<Settings>) => void;
   resetSettings: () => void;
   toggleOfflineMode: () => void;
+  switchDictionary: (dictionary: DictionarySource) => void;
 }
 
 const SettingsContext = createContext<SettingsContextType | undefined>(undefined);
@@ -57,8 +59,12 @@ export function SettingsProvider({ children }: { children: ReactNode }): React.R
     setSettings((prev) => ({ ...prev, isOfflineMode: !prev.isOfflineMode }));
   };
 
+  const switchDictionary = (dictionary: DictionarySource): void => {
+    setSettings((prev) => ({ ...prev, selectedDictionary: dictionary }));
+  };
+
   return (
-    <SettingsContext.Provider value={{ settings, updateSettings, resetSettings, toggleOfflineMode }}>
+    <SettingsContext.Provider value={{ settings, updateSettings, resetSettings, toggleOfflineMode, switchDictionary }}>
       {children}
     </SettingsContext.Provider>
   );
