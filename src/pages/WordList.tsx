@@ -112,7 +112,7 @@ export function WordList(): React.ReactElement {
                     <div className="flex items-center gap-3">
                       <h3 className="text-lg font-semibold">{word.word}</h3>
                       {word.level && <Badge level={word.level} size="sm" />}
-                      <span className="text-sm text-gray-500">({word.language})</span>
+                      <span className="text-sm text-gray-500">({word.sourceLanguage} → {word.targetLanguage})</span>
                     </div>
                     <p className="text-gray-600 mt-1">
                       {word.translations.slice(0, 3).join(', ')}

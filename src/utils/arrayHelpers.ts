@@ -20,7 +20,7 @@ export function filterByLanguage(words: Word[], language: Language | 'both'): Wo
   if (language === 'both') {
     return words;
   }
-  return words.filter((word) => word.language === language);
+  return words.filter((word) => word.sourceLanguage === language);
 }
 
 export function filterByKnown(words: Word[], known: boolean): Word[] {

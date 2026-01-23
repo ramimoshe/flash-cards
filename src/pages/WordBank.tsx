@@ -49,7 +49,8 @@ export function WordBank(): React.ReactElement {
   const { detectLevel, loading: detecting } = useCEFR(cefrService);
 
   const [word, setWord] = useState('');
-  const [language, setLanguage] = useState<Language>('en');
+  const [sourceLanguage, setSourceLanguage] = useState<Language>('en');
+  const [targetLanguage, setTargetLanguage] = useState<Language>('he');
   const [translationsText, setTranslationsText] = useState('');
   const [sentencesText, setSentencesText] = useState('');
   const [translatedSentencesText, setTranslatedSentencesText] = useState('');
@@ -68,31 +69,29 @@ export function WordBank(): React.ReactElement {
     setError('');
 
     try {
-      const targetLang = language === 'en' ? 'he' : 'en';
-
       // 1. Translate word
-      const translationResults = await translateWord(word, language, targetLang);
+      const translationResults = await translateWord(word, sourceLanguage, targetLanguage);
       if (translationResults.length > 0) {
         setTranslationsText(formatMultiValue(translationResults));
       }
 
       // 2. Detect Level (only for English)
-      if (language === 'en') {
+      if (sourceLanguage === 'en') {
         const detectedLevel = await detectLevel(word);
         setLevel(detectedLevel);
       }
 
       // 3. Generate Sentences (only for English)
-      if (language === 'en') {
+      if (sourceLanguage === 'en') {
         const sentenceResults = await generateSentences(word, 2);
         if (sentenceResults.length > 0) {
           setSentencesText(sentenceResults.join('\n'));
 
-          // 4. Translate each sentence to Hebrew
+          // 4. Translate each sentence to target language
           const translatedSentencesArray: string[] = [];
           for (const sentence of sentenceResults) {
             try {
-              const sentenceTranslations = await translateWord(sentence, 'en', 'he');
+              const sentenceTranslations = await translateWord(sentence, sourceLanguage, targetLanguage);
               if (sentenceTranslations.length > 0) {
                 translatedSentencesArray.push(sentenceTranslations[0]); // Use first translation
               } else {
@@ -124,7 +123,7 @@ export function WordBank(): React.ReactElement {
       return;
     }
 
-    if (isDuplicate(word, language, words)) {
+    if (isDuplicate(word, sourceLanguage, words)) {
       setError('This word already exists in your word bank');
       return;
     }
@@ -141,7 +140,8 @@ export function WordBank(): React.ReactElement {
     const newWord: Word = {
       id: Date.now().toString(),
       word: word.trim(),
-      language,
+      sourceLanguage,
+      targetLanguage,
       translations,
       sentences,
       translatedSentences,
@@ -190,7 +190,7 @@ export function WordBank(): React.ReactElement {
             </div>
           )}
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-3 gap-4">
             <Input
               label="Word"
               value={word}
@@ -200,10 +200,22 @@ export function WordBank(): React.ReactElement {
             />
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Language</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Source Language</label>
               <select
-                value={language}
-                onChange={(e) => setLanguage(e.target.value as Language)}
+                value={sourceLanguage}
+                onChange={(e) => setSourceLanguage(e.target.value as Language)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              >
+                <option value="en">English</option>
+                <option value="he">Hebrew</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Target Language</label>
+              <select
+                value={targetLanguage}
+                onChange={(e) => setTargetLanguage(e.target.value as Language)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
               >
                 <option value="en">English</option>

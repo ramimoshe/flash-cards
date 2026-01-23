@@ -5,7 +5,8 @@ export type Language = 'en' | 'he';
 export interface Word {
   id: string;
   word: string;
-  language: Language;
+  sourceLanguage: Language;
+  targetLanguage: Language;
   translations: string[];
   sentences: string[];
   translatedSentences: string[];

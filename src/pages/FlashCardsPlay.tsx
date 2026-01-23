@@ -175,7 +175,7 @@ export function FlashCardsPlay(): React.ReactElement {
             <Button
               size="sm"
               variant="ghost"
-              onClick={() => handleSpeak(currentWord.word, currentWord.language)}
+              onClick={() => handleSpeak(currentWord.word, currentWord.sourceLanguage)}
               disabled={speaking}
             >
               🔊
@@ -196,7 +196,7 @@ export function FlashCardsPlay(): React.ReactElement {
                     <div key={idx} className="flex items-center justify-center gap-2">
                       <p className="text-lg text-gray-700">{sentence}</p>
                       <button
-                        onClick={() => handleSpeak(sentence, currentWord.language)}
+                        onClick={() => handleSpeak(sentence, currentWord.sourceLanguage)}
                         className="text-primary hover:text-primary-dark"
                         disabled={speaking}
                       >
@@ -234,7 +234,7 @@ export function FlashCardsPlay(): React.ReactElement {
             <Button 
               onClick={handlePrevious} 
               disabled={currentIndex === 0}
-              className="border-2 border-gray-300 bg-white text-gray-700 hover:bg-gray-50 hover:border-gray-400"
+              className="bg-gray-100 text-gray-700 border-2 border-gray-400 hover:bg-gray-200 font-medium"
             >
               ← Previous
             </Button>

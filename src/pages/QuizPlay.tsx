@@ -315,7 +315,7 @@ export function QuizPlay(): React.ReactElement {
           <div className="flex justify-between items-start mb-6">
             {currentQuestion.word.level && <Badge level={currentQuestion.word.level} />}
             <div className="text-sm text-gray-500">
-              {currentQuestion.word.language === 'en' ? 'English → Hebrew' : 'Hebrew → English'}
+              {currentQuestion.word.sourceLanguage === 'en' ? 'English' : 'Hebrew'} → {currentQuestion.word.targetLanguage === 'en' ? 'English' : 'Hebrew'}
             </div>
           </div>
 

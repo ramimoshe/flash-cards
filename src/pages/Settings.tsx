@@ -30,8 +30,8 @@ export function Settings(): React.ReactElement {
 
         // Basic validation
         data.words.forEach((word: Word, idx: number) => {
-          if (!word.id || !word.word || !word.language) {
-            throw new Error(`Invalid word at index ${idx}: missing required fields`);
+          if (!word.id || !word.word || !word.sourceLanguage || !word.targetLanguage) {
+            throw new Error(`Invalid word at index ${idx}: missing required fields (id, word, sourceLanguage, targetLanguage)`);
           }
         });
 

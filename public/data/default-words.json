@@ -3,7 +3,8 @@
     {
       "id": "1",
       "word": "inevitable",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["בלתי נמנע"],
       "sentences": [
         "Change is inevitable in life.",
@@ -19,7 +20,8 @@
     {
       "id": "2",
       "word": "subtle",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["עדין", "דק"],
       "sentences": [
         "There was a subtle change in her attitude.",
@@ -35,7 +37,8 @@
     {
       "id": "3",
       "word": "reluctant",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["בעל כורחו", "לא רוצה"],
       "sentences": [
         "He was reluctant to answer the question.",
@@ -51,7 +54,8 @@
     {
       "id": "4",
       "word": "imply",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["לרמוז", "להצביע על"],
       "sentences": [
         "Are you implying that I'm wrong?",
@@ -67,7 +71,8 @@
     {
       "id": "5",
       "word": "indifferent",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["אדיש", "לא אכפתי"],
       "sentences": [
         "He seemed indifferent to her suffering.",
@@ -83,7 +88,8 @@
     {
       "id": "6",
       "word": "compromise",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["להתפשר", "פשרה"],
       "sentences": [
         "We need to find a compromise that works for everyone.",
@@ -99,7 +105,8 @@
     {
       "id": "7",
       "word": "emerge",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["להתגלות", "להופיע", "לצוץ"],
       "sentences": [
         "The sun emerged from behind the clouds.",
@@ -115,7 +122,8 @@
     {
       "id": "8",
       "word": "consciousness",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["תודעה", "הכרה"],
       "sentences": [
         "He lost consciousness after the accident.",
@@ -131,7 +139,8 @@
     {
       "id": "9",
       "word": "simile",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["דימיון", "השוואה"],
       "sentences": [
         "The poet used a simile to compare love to a rose.",
@@ -147,7 +156,8 @@
     {
       "id": "10",
       "word": "sentient",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["רגיש", "מודע", "בעל תחושה"],
       "sentences": [
         "Humans are sentient beings capable of complex emotions.",
@@ -163,7 +173,8 @@
     {
       "id": "11",
       "word": "infamous",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["מתועב", "ידוע לשימצה", "ידוע לשמצה"],
       "sentences": [
         "He became infamous for his cruel actions.",
@@ -179,7 +190,8 @@
     {
       "id": "12",
       "word": "burden",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["עול", "נטל", "משא"],
       "sentences": [
         "The burden of proof lies with the prosecution.",
@@ -195,7 +207,8 @@
     {
       "id": "13",
       "word": "derogatory",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["פוגע", "מזלזל", "משפיל"],
       "sentences": [
         "He made derogatory remarks about her appearance.",
@@ -211,7 +224,8 @@
     {
       "id": "14",
       "word": "fatigued",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["עיף"],
       "sentences": [
         "After the long hike, everyone felt fatigued.",
@@ -227,7 +241,8 @@
     {
       "id": "15",
       "word": "adequate",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["מספק", "הולם"],
       "sentences": [
         "The salary was not adequate for the work required.",
@@ -243,7 +258,8 @@
     {
       "id": "16",
       "word": "advocate",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["לתמוך", "לטעון בעד"],
       "sentences": [
         "She advocates for environmental protection.",
@@ -259,7 +275,8 @@
     {
       "id": "17",
       "word": "anticipate",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["לצפות", "לחזות"],
       "sentences": [
         "We didn't anticipate such a strong reaction from the audience.",
@@ -275,7 +292,8 @@
     {
       "id": "18",
       "word": "appreciate",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["להעריך", "להבין"],
       "sentences": [
         "I appreciate your help with this project.",
@@ -291,7 +309,8 @@
     {
       "id": "19",
       "word": "assess",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["להעריך", "לבחון"],
       "sentences": [
         "We need to assess the situation carefully before making a decision.",
@@ -307,7 +326,8 @@
     {
       "id": "20",
       "word": "attain",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["להשיג", "להגיע"],
       "sentences": [
         "It's difficult to attain perfection in any field.",
@@ -323,7 +343,8 @@
     {
       "id": "21",
       "word": "coherent",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["עקבי", "הגיוני"],
       "sentences": [
         "Her argument was clear and coherent.",
@@ -339,7 +360,8 @@
     {
       "id": "22",
       "word": "beneficial",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["מועיל", "תורם"],
       "sentences": [
         "Exercise is beneficial for your health.",
@@ -355,7 +377,8 @@
     {
       "id": "23",
       "word": "comprehensive",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["מקיף", "מפורט"],
       "sentences": [
         "We need a comprehensive solution to this problem.",
@@ -371,7 +394,8 @@
     {
       "id": "24",
       "word": "conceive",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["להעלות על הדעת", "לדמיין"],
       "sentences": [
         "I can't conceive of a better solution.",
@@ -387,7 +411,8 @@
     {
       "id": "25",
       "word": "contradict",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["לסתור", "לסתור את"],
       "sentences": [
         "His statement contradicts what he said earlier.",
@@ -403,7 +428,8 @@
     {
       "id": "26",
       "word": "distinguish",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["להבחין", "להבדיל"],
       "sentences": [
         "It's hard to distinguish between the two options.",
@@ -419,7 +445,8 @@
     {
       "id": "27",
       "word": "encounter",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["להיתקל", "לפגוש"],
       "sentences": [
         "We encountered many difficulties during the project.",
@@ -435,7 +462,8 @@
     {
       "id": "28",
       "word": "evident",
-      "language": "en",
+      "sourceLanguage": "en",
+      "targetLanguage": "he",
       "translations": ["ברור", "נראה לעין"],
       "sentences": [
         "It's evident that something is wrong.",

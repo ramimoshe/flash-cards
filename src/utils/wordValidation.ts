@@ -14,7 +14,7 @@ export function isDuplicate(
   return existingWords.some(
     (w) =>
       normalizeWord(w.word) === normalized &&
-      w.language === language &&
+      w.sourceLanguage === language &&
       w.id !== excludeId
   );
 }

@@ -145,7 +145,7 @@ export function FlashCards(): React.ReactElement {
             <Button
               size="sm"
               variant="ghost"
-              onClick={() => handleSpeak(currentWord.word, currentWord.language)}
+              onClick={() => handleSpeak(currentWord.word, currentWord.sourceLanguage)}
               disabled={speaking}
             >
               🔊
@@ -162,7 +162,7 @@ export function FlashCards(): React.ReactElement {
                     <div key={idx} className="flex items-center justify-center gap-2">
                       <p className="text-lg text-gray-700">{sentence}</p>
                       <button
-                        onClick={() => handleSpeak(sentence, currentWord.language)}
+                        onClick={() => handleSpeak(sentence, currentWord.sourceLanguage)}
                         className="text-primary hover:text-primary-dark"
                         disabled={speaking}
                       >
