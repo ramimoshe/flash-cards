@@ -207,6 +207,246 @@
       ],
       "isKnown": false,
       "level": "C1"
+    },
+    {
+      "id": "14",
+      "word": "fatigued",
+      "language": "en",
+      "translations": ["עיף"],
+      "sentences": [
+        "After the long hike, everyone felt fatigued.",
+        "The fatigued workers needed a break."
+      ],
+      "translatedSentences": [
+        "אחרי הטיול הארוך, כולם הרגישו עייפים.",
+        "העובדים העייפים היו זקוקים להפסקה."
+      ],
+      "isKnown": false,
+      "level": "B2"
+    },
+    {
+      "id": "15",
+      "word": "adequate",
+      "language": "en",
+      "translations": ["מספק", "הולם"],
+      "sentences": [
+        "The salary was not adequate for the work required.",
+        "We need adequate time to complete this project."
+      ],
+      "translatedSentences": [
+        "המשכורת לא הייתה מספקת לעבודה הנדרשת.",
+        "אנחנו צריכים זמן מספק כדי להשלים את הפרויקט הזה."
+      ],
+      "isKnown": false,
+      "level": "B2"
+    },
+    {
+      "id": "16",
+      "word": "advocate",
+      "language": "en",
+      "translations": ["לתמוך", "לטעון בעד"],
+      "sentences": [
+        "She advocates for environmental protection.",
+        "Many doctors advocate for a healthier lifestyle."
+      ],
+      "translatedSentences": [
+        "היא תומכת בהגנה על הסביבה.",
+        "רופאים רבים תומכים באורח חיים בריא יותר."
+      ],
+      "isKnown": false,
+      "level": "B2"
+    },
+    {
+      "id": "17",
+      "word": "anticipate",
+      "language": "en",
+      "translations": ["לצפות", "לחזות"],
+      "sentences": [
+        "We didn't anticipate such a strong reaction from the audience.",
+        "The company anticipates growth in the next quarter."
+      ],
+      "translatedSentences": [
+        "לא ציפינו לתגובה כה חזקה מהקהל.",
+        "החברה צופה צמיחה ברבעון הבא."
+      ],
+      "isKnown": false,
+      "level": "B2"
+    },
+    {
+      "id": "18",
+      "word": "appreciate",
+      "language": "en",
+      "translations": ["להעריך", "להבין"],
+      "sentences": [
+        "I appreciate your help with this project.",
+        "We appreciate the importance of this decision."
+      ],
+      "translatedSentences": [
+        "אני מעריך את העזרה שלך בפרויקט הזה.",
+        "אנחנו מעריכים את החשיבות של ההחלטה הזו."
+      ],
+      "isKnown": false,
+      "level": "B1"
+    },
+    {
+      "id": "19",
+      "word": "assess",
+      "language": "en",
+      "translations": ["להעריך", "לבחון"],
+      "sentences": [
+        "We need to assess the situation carefully before making a decision.",
+        "The teacher will assess your progress at the end of the semester."
+      ],
+      "translatedSentences": [
+        "אנחנו צריכים להעריך את המצב בזהירות לפני קבלת החלטה.",
+        "המורה יעריך את ההתקדמות שלך בסוף הסמסטר."
+      ],
+      "isKnown": false,
+      "level": "B2"
+    },
+    {
+      "id": "20",
+      "word": "attain",
+      "language": "en",
+      "translations": ["להשיג", "להגיע"],
+      "sentences": [
+        "It's difficult to attain perfection in any field.",
+        "She worked hard to attain her career goals."
+      ],
+      "translatedSentences": [
+        "קשה להשיג שלמות בכל תחום.",
+        "היא עבדה קשה כדי להשיג את מטרות הקריירה שלה."
+      ],
+      "isKnown": false,
+      "level": "B2"
+    },
+    {
+      "id": "21",
+      "word": "coherent",
+      "language": "en",
+      "translations": ["עקבי", "הגיוני"],
+      "sentences": [
+        "Her argument was clear and coherent.",
+        "We need a coherent strategy to solve this problem."
+      ],
+      "translatedSentences": [
+        "הטענה שלה הייתה ברורה והגיונית.",
+        "אנחנו צריכים אסטרטגיה עקבית כדי לפתור את הבעיה הזו."
+      ],
+      "isKnown": false,
+      "level": "B2"
+    },
+    {
+      "id": "22",
+      "word": "beneficial",
+      "language": "en",
+      "translations": ["מועיל", "תורם"],
+      "sentences": [
+        "Exercise is beneficial for your health.",
+        "This change will be beneficial for everyone involved."
+      ],
+      "translatedSentences": [
+        "פעילות גופנית מועילה לבריאות שלך.",
+        "השינוי הזה יהיה מועיל לכל המעורבים."
+      ],
+      "isKnown": false,
+      "level": "B2"
+    },
+    {
+      "id": "23",
+      "word": "comprehensive",
+      "language": "en",
+      "translations": ["מקיף", "מפורט"],
+      "sentences": [
+        "We need a comprehensive solution to this problem.",
+        "The report provides a comprehensive analysis of the situation."
+      ],
+      "translatedSentences": [
+        "אנחנו צריכים פתרון מקיף לבעיה הזו.",
+        "הדוח מספק ניתוח מקיף של המצב."
+      ],
+      "isKnown": false,
+      "level": "B2"
+    },
+    {
+      "id": "24",
+      "word": "conceive",
+      "language": "en",
+      "translations": ["להעלות על הדעת", "לדמיין"],
+      "sentences": [
+        "I can't conceive of a better solution.",
+        "It's hard to conceive how this happened."
+      ],
+      "translatedSentences": [
+        "אני לא יכול להעלות על הדעת פתרון טוב יותר.",
+        "קשה לדמיין איך זה קרה."
+      ],
+      "isKnown": false,
+      "level": "C1"
+    },
+    {
+      "id": "25",
+      "word": "contradict",
+      "language": "en",
+      "translations": ["לסתור", "לסתור את"],
+      "sentences": [
+        "His statement contradicts what he said earlier.",
+        "The evidence contradicts the initial theory."
+      ],
+      "translatedSentences": [
+        "הצהרתו סותרת את מה שאמר קודם.",
+        "הראיות סותרות את התיאוריה הראשונית."
+      ],
+      "isKnown": false,
+      "level": "B2"
+    },
+    {
+      "id": "26",
+      "word": "distinguish",
+      "language": "en",
+      "translations": ["להבחין", "להבדיל"],
+      "sentences": [
+        "It's hard to distinguish between the two options.",
+        "She can distinguish between genuine and fake products."
+      ],
+      "translatedSentences": [
+        "קשה להבחין בין שתי האפשרויות.",
+        "היא יכולה להבחין בין מוצרים אמיתיים ומזויפים."
+      ],
+      "isKnown": false,
+      "level": "B2"
+    },
+    {
+      "id": "27",
+      "word": "encounter",
+      "language": "en",
+      "translations": ["להיתקל", "לפגוש"],
+      "sentences": [
+        "We encountered many difficulties during the project.",
+        "She encountered an old friend at the conference."
+      ],
+      "translatedSentences": [
+        "נתקלנו בקשיים רבים במהלך הפרויקט.",
+        "היא פגשה חברה ותיקה בכנס."
+      ],
+      "isKnown": false,
+      "level": "B2"
+    },
+    {
+      "id": "28",
+      "word": "evident",
+      "language": "en",
+      "translations": ["ברור", "נראה לעין"],
+      "sentences": [
+        "It's evident that something is wrong.",
+        "The improvement was evident after the changes."
+      ],
+      "translatedSentences": [
+        "ברור שמשהו לא בסדר.",
+        "השיפור היה נראה לעין אחרי השינויים."
+      ],
+      "isKnown": false,
+      "level": "B2"
     }
   ]
 }

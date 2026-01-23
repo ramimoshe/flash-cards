@@ -6,6 +6,7 @@ export interface Settings {
   translationProvider: TranslationProvider;
   sentenceProvider: SentenceProvider;
   ttsProvider: TTSProvider;
+  isOfflineMode: boolean;
   apiKeys: {
     wordnik?: string;
     googleTTS?: string;

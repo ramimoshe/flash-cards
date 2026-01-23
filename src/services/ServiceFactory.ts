@@ -13,6 +13,8 @@ import { BrowserTTSService } from './implementations/BrowserTTSService';
 import { GoogleTTSService } from './implementations/GoogleTTSService';
 import { LocalStorageService } from './implementations/LocalStorageService';
 import { CEFRDatasetService } from './implementations/CEFRDatasetService';
+import { OfflineTranslationService } from './implementations/OfflineTranslationService';
+import { OfflineSentenceService } from './implementations/OfflineSentenceService';
 
 import {
   TranslationProvider,
@@ -25,8 +27,15 @@ export class ServiceFactory {
   private static cefrServiceInstance: ICEFRService | null = null;
 
   static createTranslationService(
-    type: TranslationProvider = 'google'
+    type: TranslationProvider = 'google',
+    isOfflineMode: boolean = false
   ): ITranslationService {
+    // Force offline service when offline mode is enabled
+    if (isOfflineMode) {
+      console.log('📴 Offline mode: Using offline translation service');
+      return new OfflineTranslationService();
+    }
+
     switch (type) {
       case 'google':
         return new GoogleTranslateService();
@@ -41,8 +50,15 @@ export class ServiceFactory {
 
   static createSentenceGeneratorService(
     type: SentenceProvider = 'freedictionary',
-    apiKey?: string
+    apiKey?: string,
+    isOfflineMode: boolean = false
   ): ISentenceGeneratorService {
+    // Force offline service when offline mode is enabled
+    if (isOfflineMode) {
+      console.log('📴 Offline mode: Using offline sentence service');
+      return new OfflineSentenceService();
+    }
+
     switch (type) {
       case 'wordnik':
         return new WordnikService(apiKey);
@@ -52,7 +68,17 @@ export class ServiceFactory {
     }
   }
 
-  static createTTSService(type: TTSProvider = 'browser', apiKey?: string): ITTSService {
+  static createTTSService(
+    type: TTSProvider = 'browser',
+    apiKey?: string,
+    isOfflineMode: boolean = false
+  ): ITTSService {
+    // FORCE Browser TTS when offline, regardless of user preference
+    if (isOfflineMode) {
+      console.log('📴 Offline mode: Using Browser TTS');
+      return new BrowserTTSService();
+    }
+
     switch (type) {
       case 'google':
         return new GoogleTTSService(apiKey);

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useWords } from '@/context/WordsContext';
 import { useSettings } from '@/context/SettingsContext';
 import { ServiceFactory } from '@/services/ServiceFactory';
@@ -6,15 +7,17 @@ import { useTTS } from '@/hooks/useTTS';
 import { Button } from '@/components/common/Button';
 import { Badge } from '@/components/common/Badge';
 import { LoadingSpinner } from '@/components/common/LoadingSpinner';
-import { Word, CEFRLevel } from '@/types/Word';
+import { Word } from '@/types/Word';
 import { shuffleArray, filterByLevel, filterByKnown } from '@/utils/arrayHelpers';
 import { getTextDirection } from '@/utils/textNormalization';
+import { GameSettings } from './FlashCardsSetup';
 
-type GameMode = 'unknown' | 'by-level' | 'all';
-
-export function FlashCards(): React.ReactElement {
+export function FlashCardsPlay(): React.ReactElement {
+  const location = useLocation();
+  const navigate = useNavigate();
   const { words, updateWord } = useWords();
   const { settings } = useSettings();
+  
   const ttsService = ServiceFactory.createTTSService(
     settings.ttsProvider,
     settings.apiKeys.googleTTS,
@@ -22,31 +25,63 @@ export function FlashCards(): React.ReactElement {
   );
   const { speak, speaking } = useTTS(ttsService);
 
-  const [gameMode, setGameMode] = useState<GameMode>('unknown');
-  const [selectedLevels, setSelectedLevels] = useState<CEFRLevel[]>([]);
+  const [gameCards, setGameCards] = useState<Word[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
-  const [filteredWords, setFilteredWords] = useState<Word[]>([]);
+  const [gameCompleted, setGameCompleted] = useState(false);
 
+  // Get game settings from navigation state
+  const gameSettings = location.state?.gameSettings as GameSettings | undefined;
+
+  // Initialize game cards on mount or when settings change
   useEffect(() => {
-    let filtered = [...words];
-
-    if (gameMode === 'unknown') {
-      filtered = filterByKnown(filtered, false);
-    } else if (gameMode === 'by-level' && selectedLevels.length > 0) {
-      filtered = filterByLevel(filtered, selectedLevels);
+    if (!gameSettings) {
+      // No settings provided, redirect to setup
+      navigate('/games/flashcards');
+      return;
     }
 
-    setFilteredWords(shuffleArray(filtered));
+    let filtered = [...words];
+
+    // Filter based on game mode
+    if (gameSettings.mode === 'unknown') {
+      filtered = filterByKnown(filtered, false);
+    } else if (gameSettings.mode === 'by-level' && gameSettings.selectedLevels) {
+      filtered = filterByLevel(filtered, gameSettings.selectedLevels);
+    }
+
+    // Shuffle once
+    const shuffled = shuffleArray(filtered);
+
+    // Limit to selected number
+    const limited =
+      gameSettings.numberOfCards === 'all'
+        ? shuffled
+        : shuffled.slice(0, gameSettings.numberOfCards);
+
+    setGameCards(limited);
     setCurrentIndex(0);
     setFlipped(false);
-  }, [words, gameMode, selectedLevels]);
+    setGameCompleted(false);
+  }, [words, gameSettings, navigate]);
 
-  const currentWord = filteredWords[currentIndex];
+  const currentWord = gameCards[currentIndex];
 
   const handleNext = (): void => {
-    setCurrentIndex((prev) => (prev + 1) % filteredWords.length);
-    setFlipped(false);
+    if (currentIndex + 1 >= gameCards.length) {
+      // Game completed
+      setGameCompleted(true);
+    } else {
+      setCurrentIndex((prev) => prev + 1);
+      setFlipped(false);
+    }
+  };
+
+  const handlePrevious = (): void => {
+    if (currentIndex > 0) {
+      setCurrentIndex((prev) => prev - 1);
+      setFlipped(false);
+    }
   };
 
   const handleMarkKnown = (): void => {
@@ -60,79 +95,74 @@ export function FlashCards(): React.ReactElement {
     speak(text, lang);
   };
 
-  if (filteredWords.length === 0) {
+  const handlePlayAgain = (): void => {
+    // Re-shuffle and restart
+    const shuffled = shuffleArray([...gameCards]);
+    setGameCards(shuffled);
+    setCurrentIndex(0);
+    setFlipped(false);
+    setGameCompleted(false);
+  };
+
+  const handleBackToSetup = (): void => {
+    navigate('/games/flashcards');
+  };
+
+  // No words available
+  if (gameCards.length === 0 && !gameCompleted) {
     return (
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-900 mb-6">Flash Cards Game</h1>
         <div className="bg-white rounded-lg shadow-md p-8 text-center">
           <p className="text-gray-600 mb-4">No words available for this mode.</p>
-          <p className="text-sm text-gray-500">Add some words in the Manage Words section!</p>
+          <Button onClick={handleBackToSetup}>Back to Setup</Button>
         </div>
       </div>
     );
   }
 
+  // Game completed screen
+  if (gameCompleted) {
+    return (
+      <div className="max-w-4xl mx-auto">
+        <div className="bg-white rounded-lg shadow-md p-8 text-center">
+          <div className="text-6xl mb-4">🎉</div>
+          <h1 className="text-3xl font-bold text-gray-900 mb-4">Congratulations!</h1>
+          <p className="text-lg text-gray-600 mb-8">
+            You've completed all {gameCards.length} cards!
+          </p>
+          <div className="flex justify-center gap-4">
+            <Button onClick={handlePlayAgain} variant="primary" size="lg">
+              🔄 Play Again
+            </Button>
+            <Button onClick={handleBackToSetup} variant="secondary" size="lg">
+              ← Back to Setup
+            </Button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Gameplay screen
   return (
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold text-gray-900 mb-6">Flash Cards Game</h1>
-
-      {/* Game Mode Selector */}
-      <div className="bg-white rounded-lg shadow-md p-4 mb-6">
-        <h2 className="text-lg font-semibold mb-3">Game Mode</h2>
-        <div className="flex flex-wrap gap-2">
-          <Button
-            variant={gameMode === 'unknown' ? 'primary' : 'ghost'}
-            onClick={() => setGameMode('unknown')}
-          >
-            Practice Unknown Words
-          </Button>
-          <Button
-            variant={gameMode === 'by-level' ? 'primary' : 'ghost'}
-            onClick={() => setGameMode('by-level')}
-          >
-            Practice by Level
-          </Button>
-          <Button
-            variant={gameMode === 'all' ? 'primary' : 'ghost'}
-            onClick={() => setGameMode('all')}
-          >
-            Practice All Words
-          </Button>
-        </div>
-
-        {gameMode === 'by-level' && (
-          <div className="mt-4">
-            <p className="text-sm text-gray-600 mb-2">Select levels:</p>
-            <div className="flex flex-wrap gap-2">
-              {(['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] as CEFRLevel[]).map((level) => (
-                <Button
-                  key={level}
-                  size="sm"
-                  variant={selectedLevels.includes(level) ? 'primary' : 'ghost'}
-                  onClick={() => {
-                    setSelectedLevels((prev) =>
-                      prev.includes(level) ? prev.filter((l) => l !== level) : [...prev, level]
-                    );
-                  }}
-                >
-                  {level}
-                </Button>
-              ))}
-            </div>
-          </div>
-        )}
+      {/* Header with Exit button */}
+      <div className="flex justify-between items-center mb-6">
+        <Button onClick={handleBackToSetup} variant="ghost" size="sm">
+          ← Exit Game
+        </Button>
+        <h1 className="text-2xl font-bold text-gray-900">Flash Cards</h1>
+        <div className="w-24"></div> {/* Spacer for centering */}
       </div>
 
       {/* Progress */}
       <div className="bg-white rounded-lg shadow-md p-4 mb-6">
         <div className="flex justify-between items-center">
           <p className="text-sm text-gray-600">
-            Card {currentIndex + 1} of {filteredWords.length}
+            Card {currentIndex + 1} of {gameCards.length}
           </p>
           {settings.isOfflineMode && (
-            <p className="text-sm text-amber-600 font-medium">
-              📴 Using offline voice
-            </p>
+            <p className="text-sm text-amber-600 font-medium">📴 Using offline voice</p>
           )}
         </div>
       </div>
@@ -152,7 +182,11 @@ export function FlashCards(): React.ReactElement {
             </Button>
           </div>
 
-          <div className={`text-center ${getTextDirection(currentWord.word) === 'rtl' ? 'rtl' : ''}`}>
+          <div
+            className={`text-center ${
+              getTextDirection(currentWord.word) === 'rtl' ? 'rtl' : ''
+            }`}
+          >
             <h2 className="text-4xl font-bold mb-6">{currentWord.word}</h2>
 
             {!flipped ? (
@@ -197,10 +231,19 @@ export function FlashCards(): React.ReactElement {
           </div>
 
           <div className="flex justify-center gap-4 mt-8">
+            <Button 
+              onClick={handlePrevious} 
+              disabled={currentIndex === 0}
+              className="border-2 border-gray-300 bg-white text-gray-700 hover:bg-gray-50 hover:border-gray-400"
+            >
+              ← Previous
+            </Button>
             <Button onClick={handleMarkKnown} variant="secondary">
               {currentWord.isKnown ? 'Mark as Unknown' : 'Mark as Known'}
             </Button>
-            <Button onClick={handleNext}>Next Card</Button>
+            <Button onClick={handleNext}>
+              {currentIndex + 1 >= gameCards.length ? 'Finish' : 'Next →'}
+            </Button>
           </div>
         </div>
       )}

@@ -34,11 +34,13 @@ export function WordBank(): React.ReactElement {
   const { settings } = useSettings();
 
   const translationService = ServiceFactory.createTranslationService(
-    settings.translationProvider
+    settings.translationProvider,
+    settings.isOfflineMode
   );
   const sentenceService = ServiceFactory.createSentenceGeneratorService(
     settings.sentenceProvider,
-    settings.apiKeys.wordnik
+    settings.apiKeys.wordnik,
+    settings.isOfflineMode
   );
   const cefrService = ServiceFactory.createCEFRService();
 
@@ -216,13 +218,20 @@ export function WordBank(): React.ReactElement {
               onClick={handleAutoFillAll}
               variant="secondary"
               size="lg"
-              disabled={!word.trim() || isAutoFilling}
+              disabled={!word.trim() || isAutoFilling || settings.isOfflineMode}
               loading={isAutoFilling}
               className="w-full max-w-md"
+              title={settings.isOfflineMode ? 'Requires internet connection' : 'Auto-fill translations, level, and sentences'}
             >
               🤖 Auto-Fill from Internet
             </Button>
           </div>
+          
+          {settings.isOfflineMode && (
+            <div className="bg-amber-50 border border-amber-200 text-amber-800 px-4 py-3 rounded text-center">
+              📴 Offline Mode: Auto-fill features disabled. Enter translations and sentences manually.
+            </div>
+          )}
 
 
           <div>

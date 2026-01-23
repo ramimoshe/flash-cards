@@ -7,6 +7,7 @@ const defaultSettings: Settings = {
   translationProvider: 'google',
   sentenceProvider: 'freedictionary',
   ttsProvider: 'browser',
+  isOfflineMode: false,
   apiKeys: {},
 };
 
@@ -14,6 +15,7 @@ interface SettingsContextType {
   settings: Settings;
   updateSettings: (newSettings: Partial<Settings>) => void;
   resetSettings: () => void;
+  toggleOfflineMode: () => void;
 }
 
 const SettingsContext = createContext<SettingsContextType | undefined>(undefined);
@@ -51,8 +53,12 @@ export function SettingsProvider({ children }: { children: ReactNode }): React.R
     setSettings(defaultSettings);
   };
 
+  const toggleOfflineMode = (): void => {
+    setSettings((prev) => ({ ...prev, isOfflineMode: !prev.isOfflineMode }));
+  };
+
   return (
-    <SettingsContext.Provider value={{ settings, updateSettings, resetSettings }}>
+    <SettingsContext.Provider value={{ settings, updateSettings, resetSettings, toggleOfflineMode }}>
       {children}
     </SettingsContext.Provider>
   );
