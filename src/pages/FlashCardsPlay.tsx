@@ -189,45 +189,77 @@ export function FlashCardsPlay(): React.ReactElement {
           >
             <h2 className="text-4xl font-bold mb-6">{currentWord.word}</h2>
 
-            {!flipped ? (
-              <div>
-                <div className="space-y-3 mb-6">
-                  {currentWord.sentences.map((sentence, idx) => (
-                    <div key={idx} className="flex items-center justify-center gap-2">
-                      <p className="text-lg text-gray-700">{sentence}</p>
-                      <button
-                        onClick={() => handleSpeak(sentence, currentWord.sourceLanguage)}
-                        className="text-primary hover:text-primary-dark"
-                        disabled={speaking}
-                      >
-                        🔊
-                      </button>
+            <div>
+              {/* Original Sentences - Always visible */}
+              <div className="space-y-3 mb-6">
+                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                  Original Sentences:
+                </h3>
+                {currentWord.sentences.map((sentence, idx) => (
+                  <div key={idx} className="flex items-center justify-center gap-2">
+                    <p className="text-lg text-gray-700">{sentence}</p>
+                    <button
+                      onClick={() => handleSpeak(sentence, currentWord.sourceLanguage)}
+                      className="text-primary hover:text-primary-dark"
+                      disabled={speaking}
+                    >
+                      🔊
+                    </button>
+                  </div>
+                ))}
+              </div>
+
+              {/* Translation Section - Shown when flipped */}
+              {flipped && (
+                <>
+                  {/* Visual Separator */}
+                  <div className="border-t-2 border-gray-200 my-6"></div>
+
+                  {/* Translations */}
+                  <div className="mb-4">
+                    <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                      Translations:
+                    </h3>
+                    <div className="space-y-1">
+                      {currentWord.translations.map((trans, idx) => (
+                        <p
+                          key={idx}
+                          className={`text-lg text-gray-700 ${
+                            getTextDirection(trans) === 'rtl' ? 'text-right' : ''
+                          }`}
+                        >
+                          • {trans}
+                        </p>
+                      ))}
                     </div>
-                  ))}
-                </div>
-                <Button onClick={() => setFlipped(true)}>Show Translation</Button>
-              </div>
-            ) : (
-              <div>
-                <div className="mb-4">
-                  <h3 className="text-xl font-semibold mb-2">Translations:</h3>
-                  {currentWord.translations.map((trans, idx) => (
-                    <p key={idx} className="text-lg text-gray-700">
-                      {trans}
-                    </p>
-                  ))}
-                </div>
-                <div className="mb-6">
-                  <h3 className="text-xl font-semibold mb-2">Example Sentences:</h3>
-                  {currentWord.translatedSentences.map((sentence, idx) => (
-                    <p key={idx} className="text-lg text-gray-700 mb-1">
-                      {sentence}
-                    </p>
-                  ))}
-                </div>
-                <Button onClick={() => setFlipped(false)}>Hide Translation</Button>
-              </div>
-            )}
+                  </div>
+
+                  {/* Translated Sentences */}
+                  <div className="mb-6">
+                    <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                      Translated Sentences:
+                    </h3>
+                    <div className="space-y-2">
+                      {currentWord.translatedSentences.map((sentence, idx) => (
+                        <p
+                          key={idx}
+                          className={`text-lg text-gray-700 ${
+                            getTextDirection(sentence) === 'rtl' ? 'text-right' : ''
+                          }`}
+                        >
+                          • {sentence}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {/* Toggle Button */}
+              <Button onClick={() => setFlipped(!flipped)}>
+                {flipped ? 'Hide Translation' : 'Show Translation'}
+              </Button>
+            </div>
           </div>
 
           <div className="flex justify-center gap-4 mt-8">
